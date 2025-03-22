@@ -16,7 +16,6 @@
 # Requires at least CMake 2.8 to configure the package.
 CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
 
-SET(CMAKE_CXX_STANDARD 11)
 
 SET(PROJECT_NAME roboptim-core-plugin-ipopt)
 SET(PROJECT_DESCRIPTION "RobOptim core IPOPT plug-in")
@@ -25,11 +24,11 @@ set(PROJECT_USE_CMAKE_EXPORT TRUE)
 
 INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/boost.cmake)
-INCLUDE(cmake/cpack.cmake)
 
 compute_project_args(PROJECT_ARGS LANGUAGES CXX C)
 project(${PROJECT_NAME} ${PROJECT_ARGS})
 
+CHECK_MINIMAL_CXX_STANDARD(14)
 # Use MathJax for Doxygen formulae
 SET(DOXYGEN_USE_MATHJAX "YES")
 
@@ -149,4 +148,3 @@ ELSE()
   MESSAGE(WARNING
     "Tests should only be disabled for speficic cases. Do it at your own risk.")
 ENDIF()
-
